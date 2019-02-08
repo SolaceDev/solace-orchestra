@@ -174,23 +174,34 @@ class Song extends LocalComponent {
 
     let index = 0;
     let count = 0;
-    // TODO - refactor
+	// TODO - refactor
+	let playableChannels = this.fields.channelList.filter(c => {
+		return c.instrument_name !== "skip";
+	});
+
     let musicians = this.parent.dashboard.getComponent("musician");
     for (let component of musicians.items) {
       if (component.disabled) {
         continue;
-      }
+	  }
       component.state = "waiting";
-      let txMsg = Object.assign({}, msg);
-      txMsg.channel_id = this.fields.channelList[index++].channel_id;
-      component.channel_id = txMsg.channel_id;
+	  let txMsg = Object.assign({}, msg);
+	  let channelId = playableChannels[index++].channel_id;
+	  if (component.fields.name) {
+		var matches = component.fields.name.match(/\d+$/);
+		if (matches) {
+			channelId = matches[0];
+		}
+	  }
+      txMsg.channel_id = channelId;
+      component.fields.channel_id = channelId;
       count++;
       this.messaging.sendMessage(`orchestra/p2p/${component.fields.client_id}`,
                                  txMsg,
                                  (txMessage, rxMessage) => {
                                    this.handleStartSongResponse(component, component, rxMessage);
                                  }, 2000, 4);
-      if (index >= this.fields.channelList.length) {
+      if (index >= playableChannels.length) {
         index = 0;
       }
     }

@@ -4,7 +4,7 @@ import {DuckLetterEffect} from '../effects.js';
 import Messaging          from '../messaging.js';
 
     // How much we penalize notes that weren't hit
-const velocityDerateFactor = 8;
+const velocityDerateFactor = 1;
 const maxTotalSliders      = 40;
 
 // Extracted from all current songs

@@ -1,10 +1,10 @@
 export default {
   title: "Solace Symphony",
   broker: {
-    url:      "ws://vmr-mr8mqb1387rx.messaging.solace.cloud:20547",
-    smfurl:   "ws://vmr-mr8mqb1387rx.messaging.solace.cloud:20547",
-    smfvpn:   "msgvpn-lq2f85akbn5",
+    url: "mrlq2f85angxr.messaging.solace.cloud",
+    smfurl: "wss://mrlq2f85angxr.messaging.solace.cloud:443",
+    smfvpn: "msgvpn-lq2f85angx7",
     username: "solace-cloud-client",
-    password: "1enlsn527b98qgto13v56nrfob"
+    password: "j63bfrgm2i0v309bee9s62o093"
   }
 };

@@ -26,8 +26,12 @@ export default class Messaging {
     factoryProps.profile = solace.SolclientFactoryProfiles.version10;
     solace.SolclientFactory.init(factoryProps);
 
-    this.client = solace.SolclientFactory.createSession( this.sessionProps );
-
+    try {
+        this.client = solace.SolclientFactory.createSession( this.sessionProps );
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
 
     let self = this;
     this.client.on(solace.SessionEventCode.UP_NOTICE, function() {

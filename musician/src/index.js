@@ -376,7 +376,8 @@ class Musician {
           lastRiders     = new Array();
           lastTime       = timeoutSeconds;
           lastNoteId     = noteMessage.note_id;
-          channelProgram = noteMessage.program;
+		  channelProgram = noteMessage.program;
+		  let that = this;
 
           let self = this;
           (function (riders) {
@@ -474,7 +475,7 @@ class Musician {
       // Remove the slider
       this.allSliders.splice(index, 1);
       
-    }, this.sliderTimeSecs * 1000 + 200);
+    }.bind(this), this.sliderTimeSecs * 1000 + 200);
 
     return slider;
 
