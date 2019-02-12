@@ -3,7 +3,7 @@ import {defs}            from '../defs.js';
 
 const sliderTimeMs    =      1500;
 const colours         = ['#0074d9', '#d83439', '#38b439', '#e9cd54',
-                         '#811ed1', '#e66224', '#e041ab'];
+                         '#811ed1', '#e66224', '#e041ab', 'blue', 'red'];
 
 export class ChannelPane extends jst.Object {
   constructor(symphony, channel) {
