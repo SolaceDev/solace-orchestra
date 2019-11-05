@@ -1,4 +1,4 @@
-url=ssl://mrlq2f85angxr.messaging.solace.cloud
-port=8883
+url=mr1dns3dpyu7wr.messaging.solace.cloud
+port=1833
 username=solace-cloud-client
-password=j63bfrgm2i0v309bee9s62o093
+password=ihpue3o9jdbdkan20s0b458m8u

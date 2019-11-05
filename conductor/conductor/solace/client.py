@@ -43,6 +43,7 @@ class SolaceMQTTClient:
         self.client.on_disconnect = onDisconnect
         self.client.on_message = onMessage
         # self.client.on_log = onLog
+        print(f"{props['url']} {props['port']}")
         self.client.username_pw_set(props['username'], password=props['password'])
         self.client.connect(props['url'], int(props['port']), 20)
 
